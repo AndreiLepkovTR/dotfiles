@@ -1,6 +1,17 @@
-$path = 'C:\Program Files (x86)'
-# Delete -WhatIf to actually delete folders, with this switch it will only output what is it going to do
-Get-ChildItem $path -Force -Directory -Filter chrome_BITS_* | Remove-Item -Recurse -Confirm:$false -Force
-Get-ChildItem $path -Force -Directory -Filter chrome_ComponentUnpacker_BeginUnzipping* | Remove-Item -Recurse -Confirm:$false -Force
-Get-ChildItem $path -Force -Directory -Filter chrome_url_fetcher_* | Remove-Item -Recurse -Confirm:$false -Force
-Get-ChildItem $path -Force -Directory -Filter scoped_dir** | Remove-Item -Recurse -Confirm:$false -Force
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0
+                              http://maven.apache.org/xsd/settings-1.0.0.xsd">
+    <profiles>
+        <profile>
+            <id>chrome-driver</id>
+            <properties>
+                <webdriver.chrome.driver>/path/to/specific/chromedriver</webdriver.chrome.driver>
+            </properties>
+        </profile>
+    </profiles>
+
+    <activeProfiles>
+        <activeProfile>chrome-driver</activeProfile>
+    </activeProfiles>
+</settings>
