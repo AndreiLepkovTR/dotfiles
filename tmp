@@ -1,14 +1,10 @@
 import io.github.bonigarcia.wdm.ChromeDriverManager;
-import io.github.bonigarcia.wdm.DriverManagerType;
-import io.github.bonigarcia.wdm.FirefoxDriverManager;
-import io.github.bonigarcia.wdm.InternetExplorerDriverManager;
 
 private static void buildChrome() {
     initialiseChromeOptions();
-    String chromedriverVersion = "112.0.5615.138"; // Specify the desired Chromedriver version
+    String chromedriverVersion = "112.0.5615.138";
 
-    ChromeDriverManager.getInstance(DriverManagerType.CHROME).driverVersion(chromedriverVersion).setup();
-    ChromeDriverManager.getInstance(DriverManagerType.CHROME).driverVersion(chromedriverVersion).setup();
+    ChromeDriverManager.getInstance().version(chromedriverVersion).setup();
 
     webDriver = new ChromeDriver(chromeOptions);
     LOG.info("User Agent: " + ((JavascriptExecutor) webDriver).executeScript("return navigator.userAgent"));
