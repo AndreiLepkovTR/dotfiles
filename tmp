@@ -1,6 +1,10 @@
-    private static void buildChrome() {
-        initialiseChromeOptions();
-        ChromeDriverManager.getInstance(DriverManagerType.CHROME).setup();
-        webDriver = new ChromeDriver(chromeOptions);
-        LOG.info("User Agent: "+((JavascriptExecutor) webDriver).executeScript("return navigator.userAgent"));
-    }
+private static void buildChrome() {
+    initialiseChromeOptions();
+    String chromedriverVersion = "112.0.5615.138"; // Specify the desired Chromedriver version
+
+    WebDriverManager.getInstance(DriverManagerType.CHROME).driverVersion(chromedriverVersion).setup();
+    ChromeDriverManager.getInstance(DriverManagerType.CHROME).driverVersion(chromedriverVersion).setup();
+
+    webDriver = new ChromeDriver(chromeOptions);
+    LOG.info("User Agent: " + ((JavascriptExecutor) webDriver).executeScript("return navigator.userAgent"));
+}
